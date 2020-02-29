@@ -1,0 +1,1 @@
+export { InputParagraph } from './Paragraph';

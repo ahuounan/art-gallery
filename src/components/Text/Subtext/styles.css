@@ -1,0 +1,6 @@
+.text-subtext {
+  font-size: var(--font-size-0);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-1);
+  margin: 0;
+}

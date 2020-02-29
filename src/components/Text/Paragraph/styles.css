@@ -1,0 +1,6 @@
+.text-paragraph {
+  font-size: var(--font-size-1);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-1);
+  margin: 0;
+}

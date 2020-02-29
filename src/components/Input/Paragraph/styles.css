@@ -1,0 +1,7 @@
+.input-text__input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 1px solid black;
+  font-size: 3rem;
+}

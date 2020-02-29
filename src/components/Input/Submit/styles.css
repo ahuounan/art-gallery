@@ -1,0 +1,9 @@
+.input-submit__input {
+  font-size: 1.999rem;
+  font-weight: 100;
+  font-style: italic;
+  font-family: var(--font-sans);
+  background-color: transparent;
+  border: 1px solid black;
+  outline: none;
+}
