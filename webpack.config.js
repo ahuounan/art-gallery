@@ -10,7 +10,6 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js'],
     modules: ['src', 'node_modules']
   },
-
   module: {
     rules: [
       {

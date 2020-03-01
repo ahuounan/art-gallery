@@ -18,7 +18,12 @@ export interface ParsedData<T = any> {
   data: T;
 }
 
-export type FetchWithParsedData<T = any> = (url: string, config?: RequestInit) => Promise<ParsedData<T>>;
+export interface FetchConfig extends RequestInit {}
+
+export type FetchWithParsedData<T = any> = (
+  url: string,
+  config?: FetchConfig
+) => Promise<ParsedData<T>>;
 
 export type RequestMiddleware = (fetch: Fetch) => Fetch;
 

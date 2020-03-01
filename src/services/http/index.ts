@@ -5,7 +5,8 @@ import {
   ResponseMiddleware,
   FetchWithParsedData,
   HttpConfig,
-  ParsedData
+  ParsedData,
+  FetchConfig
 } from './types';
 
 export class Http {
@@ -21,27 +22,27 @@ export class Http {
     this.baseUrl = baseUrl || '';
   }
 
-  fetch: Fetch = async (url: string, config?: RequestInit) => {
+  fetch: Fetch = async (url: string, config?: FetchConfig) => {
     return this.driver(this.baseUrl + url, config);
   };
 
-  get<T>(url: string, config?: RequestInit): Promise<ParsedData<T>> {
+  get<T>(url: string, config?: FetchConfig): Promise<ParsedData<T>> {
     return this.fetchWithMiddlware(url, { ...config, method: HttpMethods.GET });
   }
 
-  post<T>(url: string, body: RequestInit['body'], config?: RequestInit): Promise<ParsedData<T>> {
+  post<T>(url: string, body: FetchConfig['body'], config?: FetchConfig): Promise<ParsedData<T>> {
     return this.fetchWithMiddlware(url, { ...config, body, method: HttpMethods.POST });
   }
 
-  put<T>(url: string, body: RequestInit['body'], config?: RequestInit): Promise<ParsedData<T>> {
+  put<T>(url: string, body: FetchConfig['body'], config?: FetchConfig): Promise<ParsedData<T>> {
     return this.fetchWithMiddlware(url, { ...config, body, method: HttpMethods.PUT });
   }
 
-  delete<T>(url: string, body: RequestInit['body'], config?: RequestInit): Promise<ParsedData<T>> {
+  delete<T>(url: string, body: FetchConfig['body'], config?: FetchConfig): Promise<ParsedData<T>> {
     return this.fetchWithMiddlware(url, { ...config, body, method: HttpMethods.DELETE });
   }
 
-  fetchWithMiddlware: FetchWithParsedData = async (url: string, config?: RequestInit) => {
+  fetchWithMiddlware: FetchWithParsedData = async (url: string, config?: FetchConfig) => {
     let fetchWithMiddleware = this.fetch;
     for (const middleware of this.requestMiddlewares) {
       fetchWithMiddleware = middleware(fetchWithMiddleware);

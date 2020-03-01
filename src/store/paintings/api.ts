@@ -2,7 +2,9 @@ import { DependencyManager } from 'services/DependencyManager';
 import { Painting } from './types';
 
 const get = async () => {
-  const { response, data } = await DependencyManager.getInstance().http.get<Painting[]>('/paintings');
+  const { response, data } = await DependencyManager.getInstance().http.get<Painting[]>(
+    '/paintings'
+  );
   if (response.ok) {
     return data;
   } else {

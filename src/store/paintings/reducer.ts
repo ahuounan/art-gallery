@@ -1,4 +1,5 @@
 import { PaintingsActions, PaintingsActionTypes } from './actions';
+import { PaintingsTransformers } from './transformers';
 
 const initialState = {
   paintings: {},
@@ -25,7 +26,7 @@ export const paintingsReducer = (state = initialState, action: PaintingsActions)
         ...state,
         paintings: {
           ...state.paintings,
-          ...action.payload
+          ...PaintingsTransformers.paintingsDictionary(action.payload)
         }
       };
     }

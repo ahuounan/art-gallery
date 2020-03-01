@@ -1,5 +1,3 @@
-import { Dictionary } from 'store/types';
-
 export interface PaintingsState {
   paintings: any;
   isFetching: boolean;
@@ -8,9 +6,7 @@ export interface PaintingsState {
 
 export interface PaintingsFetchRequestPayload {}
 
-export interface PaintingsFetchResponsePayload {
-  paintings: Dictionary<Painting>;
-}
+export type PaintingsFetchResponsePayload = Painting[];
 
 export interface Painting {
   name_cn: string;
