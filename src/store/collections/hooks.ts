@@ -8,3 +8,9 @@ export const useCollections = () => {
   const collections = useSelector((state: RootState) => getCollectionsDenormalized(state));
   return collections;
 };
+
+export const useCollectionPaintings = (collectionId: number) => {
+  const getCollectionById = useMemo(CollectionsSelectors.makeGetCollectionById, []);
+  const collection = useSelector((state: RootState) => getCollectionById(state, collectionId));
+  return collection.paintings;
+};

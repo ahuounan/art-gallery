@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 
 import { Screen } from 'components/Screen';
 import { Exhibit } from 'components/Exhibit';
-import { useCollectionPaintings } from 'store/collections/hooks';
+import { useYearPaintings } from 'store/years/hooks';
 
-export const Collection = () => {
-  const { id } = useParams();
-  const paintings = useCollectionPaintings(id);
+export const Year = () => {
+  const { year } = useParams();
+  const paintings = useYearPaintings(year);
 
   return (
     <Screen>

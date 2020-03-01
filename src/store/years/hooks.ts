@@ -8,3 +8,9 @@ export const useYears = () => {
   const years = useSelector((state: RootState) => getYearIds(state));
   return years;
 };
+
+export const useYearPaintings = (year: number) => {
+  const getYear = useMemo(YearsSelectors.makeGetYear, []);
+  const years = useSelector((state: RootState) => getYear(state, year));
+  return years.paintings;
+};

@@ -8,12 +8,13 @@ import { Collection } from 'routes/Collection';
 import { Collections } from 'routes/Collections';
 import { Contact } from 'routes/Contact';
 import { Years } from 'routes/Years';
+import { Year } from 'routes/Year';
 
 export const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/collection">
+        <Route path="/collection/:id">
           <Collection />
         </Route>
         <Route path="/collections">
@@ -21,6 +22,9 @@ export const Router = () => {
         </Route>
         <Route path="/years">
           <Years />
+        </Route>
+        <Route path="/year/:year">
+          <Year />
         </Route>
         <Route path="/contact">
           <Contact />

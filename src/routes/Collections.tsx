@@ -1,6 +1,7 @@
 import React from 'react';
 import { Screen } from 'components/Screen';
 import { useCollections } from 'store/collections/hooks';
+import { Link } from 'react-router-dom';
 
 export const Collections = () => {
   const collections = useCollections();
@@ -8,7 +9,9 @@ export const Collections = () => {
     <Screen>
       Collections
       {collections.map(collection => (
-        <div key={collection}>{collection}</div>
+        <Link to={`/collection/${collection}`} key={collection}>
+          {collection}
+        </Link>
       ))}
     </Screen>
   );

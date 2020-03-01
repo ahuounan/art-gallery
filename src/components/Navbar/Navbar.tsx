@@ -11,17 +11,24 @@ interface Props {
 export const Navbar = (props: Props) => {
   const { header, menuItems } = props;
   return (
-    <header>
+    <header
+      css={{
+        display: 'flex',
+        justifyContent: 'space-between'
+      }}
+    >
       <Link key={header.url} to={header.url}>
         {header.label}
       </Link>
-      {menuItems.map(({ label, url }) => {
-        return (
-          <Link key={url} to={url}>
-            {label}
-          </Link>
-        );
-      })}
+      <div>
+        {menuItems.map(({ label, url }) => {
+          return (
+            <div key={url} css={{ display: 'inline-block', marginLeft: '16px' }}>
+              <Link to={url}>{label}</Link>
+            </div>
+          );
+        })}
+      </div>
     </header>
   );
 };

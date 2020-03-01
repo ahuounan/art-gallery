@@ -1,6 +1,7 @@
 import React from 'react';
 import { Screen } from 'components/Screen';
 import { useYears } from 'store/years/hooks';
+import { Link } from 'react-router-dom';
 
 export const Years = () => {
   const years = useYears();
@@ -8,7 +9,9 @@ export const Years = () => {
     <Screen>
       Years
       {years.map(year => (
-        <div key={year}>{year}</div>
+        <Link to={`/year/${year}`} key={year}>
+          {year}
+        </Link>
       ))}
     </Screen>
   );

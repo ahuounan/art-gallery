@@ -13,7 +13,7 @@ const getYears = (state: RootState) => getState(state).yearsList;
 const getYearDenormalized = (state: RootState, id: number) => {
   const year = getYear(state, id);
   const getPaintingById = PaintingsSelectors.makeGetPaintingById();
-  const paintings = year.paintings.map(id => getPaintingById(state, id));
+  const paintings = year.paintings.map((id: number) => getPaintingById(state, id));
   return {
     ...year,
     paintings
@@ -21,13 +21,13 @@ const getYearDenormalized = (state: RootState, id: number) => {
 };
 
 const makeGetState = () => createSelector([getState], obj => obj);
-const makeGetYearById = () => createSelector([getYear], obj => obj);
+const makeGetYear = () => createSelector([getYear], obj => obj);
 const makeGetYearIds = () => createSelector([getYears], obj => obj);
 const makeGetYearByIdDenormalized = () => createSelector([getYearDenormalized], obj => obj);
 
 export const YearsSelectors = {
   makeGetState,
   makeGetYearIds,
-  makeGetYearById,
+  makeGetYear,
   makeGetYearByIdDenormalized
 };

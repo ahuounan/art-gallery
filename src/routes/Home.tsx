@@ -10,7 +10,6 @@ export const Home = () => {
 
   return (
     <Screen>
-      Home
       <Exhibit paintings={paintings} />
     </Screen>
   );
