@@ -5,8 +5,8 @@ import { Screen } from 'components/Screen';
 
 export const Home = () => {
   return (
-    <Screen>home
+    <Screen>
       <Link to="search">Search</Link>
     </Screen>
-  )
-}
+  );
+};
