@@ -1,6 +1,24 @@
 import React from 'react';
-import { Router } from 'components/Router';
+import ReactDOM from 'react-dom';
 
-export const App = () => {
-  return <Router />;
-};
+import { Router } from 'components/Router';
+import { DependencyManager } from 'services/DependencyManager';
+import { PaintingsApi } from 'store/paintings/api';
+import { Provider } from 'react-redux';
+import { store } from 'store/config';
+
+export class App {
+  constructor() {
+    DependencyManager.initialize();
+    PaintingsApi.get();
+  }
+
+  run() {
+    ReactDOM.render(
+      <Provider store={store}>
+        <Router />
+      </Provider>,
+      document.getElementById('root')
+    );
+  }
+}

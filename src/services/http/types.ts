@@ -5,14 +5,20 @@ export enum HttpMethods {
   DELETE = 'DELETE'
 }
 
-export type Fetch = (url: string, config?: RequestInit) => Promise<Response>;
-
-export interface ParsedData {
-  response: Response;
-  data: object;
+export interface HttpConfig {
+  requestMiddlewares?: Array<RequestMiddleware>;
+  responseMiddlewares?: Array<ResponseMiddleware>;
+  baseUrl: string;
 }
 
-export type FetchWithParsedData = (url: string, config?: RequestInit) => Promise<ParsedData>;
+export type Fetch = (url: string, config?: RequestInit) => Promise<Response>;
+
+export interface ParsedData<T = any> {
+  response: Response;
+  data: T;
+}
+
+export type FetchWithParsedData<T = any> = (url: string, config?: RequestInit) => Promise<ParsedData<T>>;
 
 export type RequestMiddleware = (fetch: Fetch) => Fetch;
 

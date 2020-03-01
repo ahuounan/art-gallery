@@ -1,40 +1,45 @@
-import { Fetch, HttpMethods, RequestMiddleware, ResponseMiddleware, FetchWithParsedData } from './types';
+import {
+  Fetch,
+  HttpMethods,
+  RequestMiddleware,
+  ResponseMiddleware,
+  FetchWithParsedData,
+  HttpConfig,
+  ParsedData
+} from './types';
 
 export class Http {
-  driver = fetch;
-  requestMiddlewares: Array<RequestMiddleware>;
-  responseMiddlewares: Array<ResponseMiddleware>;
+  private driver = fetch.bind(window);
+  private requestMiddlewares: Array<RequestMiddleware>;
+  private responseMiddlewares: Array<ResponseMiddleware>;
+  private baseUrl: string;
 
-  constructor({
-    requestMiddlewares,
-    responseMiddlewares
-  }: {
-    requestMiddlewares: Array<RequestMiddleware>;
-    responseMiddlewares: Array<ResponseMiddleware>;
-  }) {
-    this.requestMiddlewares = requestMiddlewares;
-    this.responseMiddlewares = responseMiddlewares;
+  constructor(config?: HttpConfig) {
+    const { baseUrl, requestMiddlewares, responseMiddlewares } = config || {};
+    this.requestMiddlewares = requestMiddlewares || [];
+    this.responseMiddlewares = responseMiddlewares || [];
+    this.baseUrl = baseUrl || '';
   }
 
   fetch: Fetch = async (url: string, config?: RequestInit) => {
-    return this.driver(url, config);
+    return this.driver(this.baseUrl + url, config);
   };
 
-  get = (url: string, config?: RequestInit) => {
-    return this.fetch(url, { ...config, method: HttpMethods.GET });
-  };
+  get<T>(url: string, config?: RequestInit): Promise<ParsedData<T>> {
+    return this.fetchWithMiddlware(url, { ...config, method: HttpMethods.GET });
+  }
 
-  post = (url: string, body: RequestInit['body'], config?: RequestInit) => {
-    return this.fetch(url, { ...config, body, method: HttpMethods.POST });
-  };
+  post<T>(url: string, body: RequestInit['body'], config?: RequestInit): Promise<ParsedData<T>> {
+    return this.fetchWithMiddlware(url, { ...config, body, method: HttpMethods.POST });
+  }
 
-  put = (url: string, body: RequestInit['body'], config?: RequestInit) => {
-    return this.fetch(url, { ...config, body, method: HttpMethods.PUT });
-  };
+  put<T>(url: string, body: RequestInit['body'], config?: RequestInit): Promise<ParsedData<T>> {
+    return this.fetchWithMiddlware(url, { ...config, body, method: HttpMethods.PUT });
+  }
 
-  delete = (url: string, body: RequestInit['body'], config?: RequestInit) => {
-    return this.fetch(url, { ...config, body, method: HttpMethods.DELETE });
-  };
+  delete<T>(url: string, body: RequestInit['body'], config?: RequestInit): Promise<ParsedData<T>> {
+    return this.fetchWithMiddlware(url, { ...config, body, method: HttpMethods.DELETE });
+  }
 
   fetchWithMiddlware: FetchWithParsedData = async (url: string, config?: RequestInit) => {
     let fetchWithMiddleware = this.fetch;

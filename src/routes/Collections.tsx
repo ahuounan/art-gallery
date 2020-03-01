@@ -1,5 +1,6 @@
 import React from 'react';
+import { Screen } from 'components/Screen';
 
-export const Collection = () => {
-  return <div></div>;
+export const Collections = () => {
+  return <Screen>Collections</Screen>;
 };

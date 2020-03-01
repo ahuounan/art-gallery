@@ -18,11 +18,10 @@ export const Screen = (props: Props) => {
       }}
     >
       <Navbar
-        header="Jenny Dong"
+        header={{ label: 'Jenny Dong', url: '/' }}
         menuItems={[
-          { label: 'contact', url: 'contact' },
-          { label: 'about', url: 'about' },
           { label: 'collections', url: 'collections' },
+          { label: 'about', url: 'about' },
           { label: 'contact', url: 'contact' }
         ]}
       />
