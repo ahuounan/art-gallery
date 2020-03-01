@@ -10,7 +10,7 @@ A template media display app, fetching paintings and metadata from an API and di
 ## Features
 - Http service that accepts request and response middlewares, based on fetch api
 - ProgressiveImage component that accepts an array of src strings and gradually fetches higher quality images
-- Standard redux store extended with hooks that provide quick access to memoized selectors
+- Standard normalized redux store extended with hooks that provide quick access to memoized selectors
 - Typescript/React/Emotion toolchain
 
 ## To Run
