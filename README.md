@@ -6,3 +6,9 @@ A template media display app, fetching paintings and metadata from an API and di
 - React-Router
 - Redux
 - Redux-Sagas
+
+## To Run
+- `git clone` the project
+- run `npm i`
+- run `npm run start:dev`
+- Open in localhost:8080
