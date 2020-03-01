@@ -12,11 +12,11 @@
     "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
     "strict": true, // Enable all strict type checking options
     "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file.
-    "module": "esnext", // Specify module code generation
+    "module": "es2015", // Specify module code generation
     "moduleResolution": "node", // Resolve modules using Node.js style
     "resolveJsonModule": true, // Include modules imported with .json extension
     // "noEmit": true, // Do not emit output (meaning do not compile code, only perform type checking)
-    "jsx": "react", // Support JSX in .tsx files
+    "jsx": "preserve",
     "sourceMap": true, // Generate corrresponding .map file
     "declaration": true, // Generate corresponding .d.ts file 
     "noUnusedLocals": true, // Report errors on unused locals
@@ -27,6 +27,9 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "types": [
+      "@emotion/core"
+    ]
   },
   "include": [
     "src/**/*" // *** The files TypeScript should type check ***
