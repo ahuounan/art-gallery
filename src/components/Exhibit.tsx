@@ -58,7 +58,10 @@ export const Exhibit = (props: Props) => {
           bottom: 0,
           left: 0,
           right: 0,
-          overflow: 'scroll'
+          overflow: 'scroll',
+          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          alignItems: 'center',
+          padding: '5px 0 5px 0'
         }}
       >
         {paintings.map((id, index) => {
