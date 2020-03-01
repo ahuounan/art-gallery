@@ -33,9 +33,11 @@ export const Exhibit = (props: Props) => {
         left: 0,
         right: 0,
         bottom: 0,
+        paddingBottom: '50px',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        overflow: 'hidden'
       }}
     >
       <ArrowButton
@@ -59,9 +61,12 @@ export const Exhibit = (props: Props) => {
           left: 0,
           right: 0,
           overflow: 'scroll',
-          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
           alignItems: 'center',
-          padding: '5px 0 5px 0'
+          padding: '5px 0 5px 0',
+          transform: 'translateY(50px)',
+          transition: 'transform 0.15s ease-in',
+          '&:hover': { transform: 'translateY(0)' }
         }}
       >
         {paintings.map((id, index) => {

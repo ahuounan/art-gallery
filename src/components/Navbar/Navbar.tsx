@@ -14,7 +14,9 @@ export const Navbar = (props: Props) => {
     <header
       css={{
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        height: '50px'
       }}
     >
       <Link key={header.url} to={header.url}>

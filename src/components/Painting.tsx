@@ -38,6 +38,9 @@ export const Painting = (props: Props) => {
       key={id}
       srcProgression={[srcT, srcL, srcM, srcH]}
       alt={name}
+      css={{
+        boxShadow: '20px 20px 60px #d6d6d6, -20px -20px 60px #ffffff'
+      }}
     />
   );
 };
