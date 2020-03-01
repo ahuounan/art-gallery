@@ -1,3 +1,13 @@
+import { CollectionsState } from './collections/types';
+import { PaintingsState } from './paintings/types';
+import { YearsState } from './years/types';
+
+export interface RootState {
+  collections: CollectionsState;
+  paintings: PaintingsState;
+  years: YearsState;
+}
+
 export interface Action<T extends string> {
   type: T;
 }
@@ -22,7 +32,3 @@ export type ActionsUnion<A extends ActionCreatorsMapObject> = ReturnType<A[keyof
 export type Dispatch<A> = (action: A) => void;
 
 export type BasicAction<T> = ActionWithPayload<string, T>;
-
-export interface Dictionary<T> {
-  [key: string]: T;
-}

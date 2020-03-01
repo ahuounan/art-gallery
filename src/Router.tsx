@@ -7,6 +7,7 @@ import { About } from 'routes/About';
 import { Collection } from 'routes/Collection';
 import { Collections } from 'routes/Collections';
 import { Contact } from 'routes/Contact';
+import { Years } from 'routes/Years';
 
 export const Router = () => {
   return (
@@ -17,6 +18,9 @@ export const Router = () => {
         </Route>
         <Route path="/collections">
           <Collections />
+        </Route>
+        <Route path="/years">
+          <Years />
         </Route>
         <Route path="/contact">
           <Contact />

@@ -1,14 +1,17 @@
+import { Dictionary } from 'types';
+
 export interface PaintingsState {
-  paintings: any;
+  paintings: Dictionary<Painting>;
+  paintingsList: number[];
   isFetching: boolean;
   error: boolean;
 }
 
 export interface PaintingsFetchRequestPayload {}
 
-export type PaintingsFetchResponsePayload = Painting[];
+export type PaintingsFetchResponsePayload = PaintingRaw[];
 
-export interface Painting {
+export interface PaintingRaw {
   name_cn: string;
   name_en: string;
   series_n: number;
@@ -23,4 +26,18 @@ export interface Painting {
   src_l: string;
   src_m: string;
   src_h: string;
+}
+
+export interface Painting {
+  id: number;
+  name: string;
+  medium: string;
+  dimensions: string;
+  year: number;
+  collection: number;
+  collectionName: string;
+  srcT: string;
+  srcL: string;
+  srcM: string;
+  srcH: string;
 }

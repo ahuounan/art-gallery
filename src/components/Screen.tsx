@@ -21,6 +21,7 @@ export const Screen = (props: Props) => {
         header={{ label: 'Jenny Dong', url: '/' }}
         menuItems={[
           { label: 'collections', url: 'collections' },
+          { label: 'years', url: 'years' },
           { label: 'about', url: 'about' },
           { label: 'contact', url: 'contact' }
         ]}

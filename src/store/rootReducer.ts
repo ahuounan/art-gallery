@@ -4,7 +4,7 @@ import { collectionsReducer } from './collections/reducer';
 import { yearsReducer } from './years/reducer';
 
 export const rootReducer = combineReducers({
-  collection: collectionsReducer,
+  collections: collectionsReducer,
   paintings: paintingsReducer,
   years: yearsReducer
 });

@@ -1,8 +1,10 @@
+import { Dictionary } from 'types';
+
 import { Painting } from '../paintings/types';
-import { Dictionary } from 'store/types';
+import { Collection } from './types';
 
 const paintingsToCollections = (paintings: Painting[]) => {
-  const collections: Dictionary<any> = {};
+  const collections: Dictionary<Collection> = {};
   const collectionsList: number[] = [];
   paintings.forEach(({ collection: collectionId, collection_name: collectionName, id }) => {
     const collection = collections[collectionId];

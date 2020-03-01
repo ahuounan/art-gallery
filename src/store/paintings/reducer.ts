@@ -1,8 +1,10 @@
 import { PaintingsActions, PaintingsActionTypes } from './actions';
 import { PaintingsTransformers } from './transformers';
+import { PaintingsState } from './types';
 
-const initialState = {
+const initialState: PaintingsState = {
   paintings: {},
+  paintingsList: [],
   isFetching: false,
   error: false
 };
@@ -22,11 +24,13 @@ export const paintingsReducer = (state = initialState, action: PaintingsActions)
       };
     }
     case PaintingsActionTypes.PAINTINGS_FETCH_SUCCESS: {
+      const { paintingsDict, paintingsList } = PaintingsTransformers.paintings(action.payload);
       return {
         ...state,
+        paintingsList,
         paintings: {
           ...state.paintings,
-          ...PaintingsTransformers.paintingsDictionary(action.payload)
+          ...paintingsDict
         }
       };
     }

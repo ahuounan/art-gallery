@@ -1,8 +1,10 @@
+import { Dictionary } from 'types';
+
 import { Painting } from '../paintings/types';
-import { Dictionary } from 'store/types';
+import { Year } from './types';
 
 const paintingsToYears = (paintings: Painting[]) => {
-  const years: Dictionary<any> = {};
+  const years: Dictionary<Year> = {};
   const yearsList: number[] = [];
   paintings.forEach(({ year, id }) => {
     if (!year) return;
