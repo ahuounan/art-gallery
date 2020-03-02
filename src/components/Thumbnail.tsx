@@ -21,8 +21,9 @@ export const Thumbnail = (props: Props) => {
         flexShrink: 0,
         border: 'none',
         outline: 'none',
-        margin: '0 5px 0 5px',
-        backgroundColor: 'transparent'
+        margin: '0 2.5px 0 2.5px',
+        background: '#fcfcfc',
+        borderRadius: '2px'
       }}
       key={id}
       onMouseUp={onPress}
@@ -45,7 +46,11 @@ export const Thumbnail = (props: Props) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          color: 'black'
+          color: 'transparent',
+          '&:hover': {
+            color: 'white',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)'
+          }
         }}
       >
         {painting.name}

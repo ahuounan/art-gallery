@@ -19,7 +19,14 @@ export const Navbar = (props: Props) => {
         height: '50px'
       }}
     >
-      <Link key={header.url} to={header.url}>
+      <Link
+        css={{
+          textDecoration: 'none',
+          color: 'black'
+        }}
+        key={header.url}
+        to={header.url}
+      >
         {header.label}
       </Link>
       <div>

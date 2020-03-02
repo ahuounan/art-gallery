@@ -4,6 +4,7 @@ import { Painting } from './Painting';
 import { Thumbnail } from './Thumbnail';
 import { ArrowButton, ButtonDirections } from './ArrowButton';
 import { CSSObj } from 'types';
+import { FilmRoll } from './FilmRoll';
 
 interface Props {
   paintings: number[];
@@ -53,27 +54,7 @@ export const Exhibit = (props: Props) => {
         direction={ButtonDirections.RIGHT}
         style={{ ...arrowStyle, ...rightArrowStyle }}
       />
-      <div
-        css={{
-          position: 'absolute',
-          display: 'flex',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          overflow: 'scroll',
-          backgroundColor: 'rgba(0, 0, 0, 0.8)',
-          alignItems: 'center',
-          padding: '5px 0 5px 0',
-          transform: 'translateY(50px)',
-          transition: 'transform 0.15s ease-in',
-          '&:hover': { transform: 'translateY(0)' }
-        }}
-      >
-        {paintings.map((id, index) => {
-          const handlePress = () => setIndex(index);
-          return <Thumbnail key={id} id={id} onPress={handlePress} />;
-        })}
-      </div>
+      <FilmRoll paintings={paintings} onThumbnailPress={setIndex} />
     </div>
   );
 };
