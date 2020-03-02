@@ -16,10 +16,10 @@ const arrowStyle: CSSObj = {
 };
 
 const rightArrowStyle = {
-  right: 0
+  right: '10px'
 };
 const leftArrowStyle = {
-  left: 0
+  left: '10px'
 };
 
 export const Exhibit = (props: Props) => {

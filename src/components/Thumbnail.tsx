@@ -23,7 +23,8 @@ export const Thumbnail = (props: Props) => {
         outline: 'none',
         margin: '0 2.5px 0 2.5px',
         background: '#fcfcfc',
-        borderRadius: '2px'
+        borderRadius: '2px',
+        zIndex: 10
       }}
       key={id}
       onMouseUp={onPress}

@@ -32,7 +32,7 @@ export const FilmRoll = (props: Props) => {
           bottom: 0,
           left: 0,
           right: 0,
-          zIndex: 2,
+          zIndex: 10,
           opacity: 0.5,
           background: `linear-gradient(
             to bottom,
@@ -54,7 +54,7 @@ export const FilmRoll = (props: Props) => {
             hsl(0, 0%, 0%) 100%
           )`,
           transition: 'transform 0.15s ease-in, opacity 0.15s ease-in',
-          '&:hover': { opacity: 0 }
+          '&:hover': { opacity: 0, zIndex: 0 }
         }}
       />
       {paintings.map((id, index) => {
