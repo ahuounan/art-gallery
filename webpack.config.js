@@ -15,7 +15,7 @@ module.exports = {
     rules: [
       {
         loader: 'babel-loader',
-        exclude: /node_modules|dist/,
+        include: /src/,
         options: { cacheDirectory: true }
       },
       {
@@ -61,6 +61,10 @@ module.exports = {
       }
     ]
   },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM'
+  },
   entry: path.join(__dirname, 'src', '/index.tsx'),
   output: {
     filename: 'main.js',
@@ -70,7 +74,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Jenny Dong',
-      filename: './index.html' //relative to root of the application
+      filename: './index.html', //relative to root of the application
+      template: './index.html'
     })
   ]
 };
