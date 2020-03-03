@@ -16,6 +16,9 @@ jobs:
           name: Install node modules
           command: npm install
       - run:
+          name: debug
+          command: ls
+      - run:
           name: Running build
           command: npm run build
       - persist_to_workspace:
