@@ -9,8 +9,11 @@ import { Collections } from 'routes/Collections';
 import { Contact } from 'routes/Contact';
 import { Years } from 'routes/Years';
 import { Year } from 'routes/Year';
+import { useFetchPaintings } from 'store/paintings/hooks';
 
 export const Router = () => {
+  useFetchPaintings();
+
   return (
     <BrowserRouter>
       <Switch>
