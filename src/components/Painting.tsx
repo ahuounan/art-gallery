@@ -2,6 +2,7 @@ import React from 'react';
 import { ProgressiveImage } from 'components/ProgressiveImage';
 import { Loader } from 'components/Loader';
 import { usePaintingById } from 'store/paintings/hooks';
+import { Text } from './Text';
 
 interface Props {
   id: number;
@@ -51,6 +52,7 @@ export const Painting = (props: Props) => {
             bottom: 0,
             right: 0,
             display: 'flex',
+            flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
             color: 'transparent',
@@ -62,10 +64,10 @@ export const Painting = (props: Props) => {
             }
           }}
         >
-          {name}
-          {medium}
-          {year}
-          {paintingDimensions}
+          <Text.Paragraph text={name} />
+          <Text.Paragraph text={medium} />
+          <Text.Paragraph text={year} />
+          <Text.Paragraph text={paintingDimensions} />
         </div>
       </ProgressiveImage>
     </div>

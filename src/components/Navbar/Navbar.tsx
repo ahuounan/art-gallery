@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { MenuItem } from './types';
+import { Text } from 'components/Text';
 
 interface Props {
   header: MenuItem;
@@ -16,7 +17,8 @@ export const Navbar = (props: Props) => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        height: '50px'
+        height: '50px',
+        padding: '0 5px 0 5px'
       }}
     >
       <Link
@@ -27,13 +29,21 @@ export const Navbar = (props: Props) => {
         key={header.url}
         to={header.url}
       >
-        {header.label}
+        <Text.Header text={header.label} />
       </Link>
       <div>
         {menuItems.map(({ label, url }) => {
           return (
             <div key={url} css={{ display: 'inline-block', marginLeft: '16px' }}>
-              <Link to={url}>{label}</Link>
+              <Link
+                css={{
+                  textDecoration: 'none',
+                  color: 'black'
+                }}
+                to={url}
+              >
+                <Text.Paragraph text={label} />
+              </Link>
             </div>
           );
         })}

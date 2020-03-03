@@ -9,7 +9,7 @@ const paintings = (paintings: PaintingRaw[]) => {
     paintingsList.push(id);
     paintingsDict[id] = {
       name: painting.name_en,
-      medium: painting.medium_cn,
+      medium: painting.medium_en,
       dimensions: painting.dimensions,
       year: painting.year,
       collection: painting.collection,
