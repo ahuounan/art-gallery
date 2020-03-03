@@ -13,11 +13,11 @@ jobs:
           name: Install node
           command: apk add --update nodejs-npm
       - run:
+          name: Instal autoreconf
+          command: apk add autoreconf
+      - run:
           name: Install node modules
           command: npm install
-      - run:
-          name: debug
-          command: ls node_modules
       - run:
           name: Running build
           command: npm run build
