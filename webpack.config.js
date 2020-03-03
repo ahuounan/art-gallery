@@ -68,7 +68,7 @@ module.exports = {
   entry: path.join(__dirname, 'src', '/index.tsx'),
   output: {
     filename: 'main.js',
-    publicPath: '/dist',
+    publicPath: '/',
     path: path.join(__dirname, 'dist')
   },
   plugins: [
