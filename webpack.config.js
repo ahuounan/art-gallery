@@ -61,10 +61,6 @@ module.exports = {
       }
     ]
   },
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM'
-  },
   entry: path.join(__dirname, 'src', '/index.tsx'),
   output: {
     filename: 'main.js',
