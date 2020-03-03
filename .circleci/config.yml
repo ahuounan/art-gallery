@@ -17,7 +17,7 @@ jobs:
           command: npm install
       - run:
           name: debug
-          command: ls
+          command: ls node_modules
       - run:
           name: Running build
           command: npm run build
