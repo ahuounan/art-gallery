@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -14,6 +15,7 @@ module.exports = {
     rules: [
       {
         loader: 'babel-loader',
+        exclude: /node_modules|dist/,
         options: { cacheDirectory: true }
       },
       {
@@ -68,5 +70,12 @@ module.exports = {
     filename: 'main.js',
     publicPath: '/dist',
     path: path.join(__dirname, 'dist')
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      hash: true,
+      title: 'Jenny Dong',
+      filename: './index.html' //relative to root of the application
+    })
+  ]
 };
