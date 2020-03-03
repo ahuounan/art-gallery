@@ -73,7 +73,6 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      hash: true,
       title: 'Jenny Dong',
       filename: './index.html' //relative to root of the application
     })
