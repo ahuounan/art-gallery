@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Painting } from './Painting';
-import { Thumbnail } from './Thumbnail';
 import { ArrowButton, ButtonDirections } from './ArrowButton';
 import { CSSObj } from 'types';
 import { FilmRoll } from './FilmRoll';
