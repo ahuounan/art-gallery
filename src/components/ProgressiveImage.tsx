@@ -5,10 +5,18 @@ import { Loader } from './Loader';
 interface Props extends CoverImageProps {
   srcProgression: string[];
   children?: React.ReactNode;
+  ImageComponent?: React.ComponentType;
 }
 
 export const ProgressiveImage = (props: Props) => {
-  const { children, srcProgression, width, height, ...imgProps } = props;
+  const {
+    children,
+    srcProgression,
+    width,
+    height,
+    ImageComponent = CoverImage,
+    ...imgProps
+  } = props;
   const [srcIndex, setSrcIndex] = React.useState(0);
   const [showLoader, setShowLoader] = React.useState(true);
   const handleLoad = () => {
@@ -20,7 +28,7 @@ export const ProgressiveImage = (props: Props) => {
   return (
     <div css={{ position: 'relative', display: 'flex' }}>
       {showLoader && <Loader />}
-      <CoverImage
+      <ImageComponent
         {...imgProps}
         width={width}
         height={height}

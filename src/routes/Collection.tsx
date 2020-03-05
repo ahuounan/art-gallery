@@ -11,7 +11,7 @@ export const Collection = () => {
 
   return (
     <Screen>
-      <Exhibit paintings={paintings} />
+      <Exhibit paintingIds={paintings} />
     </Screen>
   );
 };

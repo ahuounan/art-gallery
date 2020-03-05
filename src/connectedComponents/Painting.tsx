@@ -1,16 +1,15 @@
 import React from 'react';
 import { ProgressiveImage } from 'components/ProgressiveImage';
 import { Loader } from 'components/Loader';
-import { usePaintingById } from 'store/paintings/hooks';
-import { Text } from './Text';
+import { Text } from '../components/Text';
+import { Painting as PaintingType } from 'store/paintings/types';
 
 interface Props {
-  id: number;
+  painting: PaintingType;
 }
 
 export const Painting = (props: Props) => {
-  const { id } = props;
-  const painting = usePaintingById(id);
+  const { painting } = props;
   const [dimensions, setDimensions] = React.useState({
     height: window.innerHeight * 0.8,
     width: window.innerWidth * 0.8
@@ -26,9 +25,19 @@ export const Painting = (props: Props) => {
     };
   });
 
-  if (!id) return <Loader />;
+  if (!painting) return <Loader />;
 
-  const { name, medium, year, dimensions: paintingDimensions, srcT, srcL, srcM, srcH } = painting;
+  const {
+    id,
+    name,
+    medium,
+    year,
+    dimensions: paintingDimensions,
+    srcT,
+    srcL,
+    srcM,
+    srcH
+  } = painting;
 
   const { height, width } = dimensions;
 

@@ -2,10 +2,10 @@ import React from 'react';
 import { Thumbnail } from './Thumbnail';
 import { Dictionary, CSSObj } from 'types';
 import { ArrowButton, ButtonDirections } from './ArrowButton';
-import { usePaintingsDenormalized } from 'store/paintings/hooks';
+import { Painting } from 'store/paintings/types';
 
 interface Props {
-  paintings: number[];
+  paintings: Painting[];
   windowSize?: number;
   onThumbnailPress: (index: number) => void;
 }
@@ -60,9 +60,8 @@ const useScrollable = () => {
 
 export const FilmRoll = (props: Props) => {
   const { paintings, onThumbnailPress, windowSize = 1 } = props;
-  const paintingsData = usePaintingsDenormalized(paintings);
   const [lastLoadedIndex, setLastLoadedIndex] = React.useState(1);
-  const currentPaintings = paintingsData.slice(0, lastLoadedIndex + 1);
+  const currentPaintings = paintings.slice(0, lastLoadedIndex + 1);
   const loadStateArray = React.useRef<boolean[]>([]).current;
   const { elementRef, handleScroll, reachedLeft, reachedRight } = useScrollable();
 
@@ -86,7 +85,7 @@ export const FilmRoll = (props: Props) => {
               setLastLoadedIndex(lastLoadedIndex + windowSize + 1);
             }
           };
-          loadStateArray[index] = loadStateArray[index];
+          loadStateArray[index] = !!loadStateArray[index];
           return (
             <Thumbnail
               key={painting.id}

@@ -9,7 +9,7 @@ export const Home = () => {
 
   return (
     <Screen>
-      <Exhibit paintings={paintings} />
+      <Exhibit paintingIds={paintings} />
     </Screen>
   );
 };

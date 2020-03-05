@@ -11,7 +11,7 @@ export const Year = () => {
 
   return (
     <Screen>
-      <Exhibit paintings={paintings} />
+      <Exhibit paintingIds={paintings} />
     </Screen>
   );
 };

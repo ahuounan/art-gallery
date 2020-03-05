@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { Painting } from './Painting';
+import { Painting } from '../connectedComponents/Painting';
 import { ArrowButton, ButtonDirections } from './ArrowButton';
 import { CSSObj } from 'types';
 import { FilmRoll } from './FilmRoll';
+import { usePaintingsDenormalized } from 'store/paintings/hooks';
 
 interface Props {
-  paintings: number[];
+  paintingIds: number[];
 }
 
 const arrowStyle: CSSObj = {
@@ -22,7 +23,8 @@ const leftArrowStyle = {
 };
 
 export const Exhibit = (props: Props) => {
-  const { paintings } = props;
+  const { paintingIds } = props;
+  const paintings = usePaintingsDenormalized(paintingIds);
   const [currentIndex, setIndex] = React.useState(0);
 
   return (
@@ -46,7 +48,7 @@ export const Exhibit = (props: Props) => {
         direction={ButtonDirections.LEFT}
         style={{ ...arrowStyle, ...leftArrowStyle }}
       />
-      <Painting id={paintings[currentIndex]} />
+      <Painting painting={paintings[currentIndex]} />
       <ArrowButton
         onPress={() => setIndex(currentIndex + 1)}
         disabled={currentIndex >= paintings.length - 1}
