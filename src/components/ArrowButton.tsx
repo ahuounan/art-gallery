@@ -13,7 +13,7 @@ interface Props {
   direction: ButtonDirections;
   onPress: () => void;
   disabled: boolean;
-  style: CSSObj;
+  style?: CSSObj;
 }
 
 export const ArrowButton = (props: Props) => {

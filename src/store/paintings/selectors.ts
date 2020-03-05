@@ -9,8 +9,8 @@ const getPaintingById = (state: RootState, id: number) => getState(state).painti
 
 const getPaintingIds = (state: RootState) => getState(state).paintingsList;
 
-const getPaintingsDenormalized = (state: RootState) => {
-  return getPaintingIds(state).map(id => getPaintingById(state, id));
+const getPaintingsDenormalized = (state: RootState, ids: number[]) => {
+  return ids.map(id => getPaintingById(state, id));
 };
 
 const makeGetState = () => createSelector([getState], obj => obj);

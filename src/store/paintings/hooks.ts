@@ -22,3 +22,9 @@ export const usePaintingById = (id: number) => {
   const painting = useSelector((state: RootState) => getPaintingById(state, id));
   return painting;
 };
+
+export const usePaintingsDenormalized = (ids: number[]) => {
+  const getPaintingsDenormalized = useMemo(PaintingsSelectors.makeGetPaintingsDenormalized, []);
+  const paintings = useSelector((state: RootState) => getPaintingsDenormalized(state, ids));
+  return paintings;
+};

@@ -1,14 +1,21 @@
 import React from 'react';
-import { usePaintingById } from 'store/paintings/hooks';
+
+import { Loader } from './Loader';
 
 interface Props {
-  id: number;
   onPress?: () => void;
+  onLoad?: () => void;
+  src?: string;
+  name?: string;
 }
 
 export const Thumbnail = (props: Props) => {
-  const { id, onPress } = props;
-  const painting = usePaintingById(id);
+  const { onLoad, onPress, src, name } = props;
+  const [isLoading, setIsLoading] = React.useState(true);
+  const handleLoad = () => {
+    setIsLoading(false);
+    onLoad && onLoad();
+  };
 
   return (
     <button
@@ -26,16 +33,33 @@ export const Thumbnail = (props: Props) => {
         borderRadius: '2px',
         zIndex: 10
       }}
-      key={id}
       onMouseUp={onPress}
     >
+      {isLoading && (
+        <div
+          css={{
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
+            background: '#fcfcfc',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <Loader height={'32px'} width={'30px'} />
+        </div>
+      )}
       <img
         css={{
           maxHeight: '100%',
           maxWidth: '100%',
           backgroundSize: 'contain'
         }}
-        src={painting.srcT}
+        onLoad={handleLoad}
+        src={src}
       />
       <div
         css={{
@@ -54,7 +78,7 @@ export const Thumbnail = (props: Props) => {
           }
         }}
       >
-        {painting.name}
+        {name}
       </div>
     </button>
   );

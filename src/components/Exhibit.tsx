@@ -53,7 +53,7 @@ export const Exhibit = (props: Props) => {
         direction={ButtonDirections.RIGHT}
         style={{ ...arrowStyle, ...rightArrowStyle }}
       />
-      <FilmRoll paintings={paintings} onThumbnailPress={setIndex} />
+      <FilmRoll windowSize={5} paintings={paintings} onThumbnailPress={setIndex} />
     </div>
   );
 };
