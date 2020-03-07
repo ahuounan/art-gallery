@@ -1,4 +1,4 @@
-# jennydong paintings
+# Art Gallery webapp
 A template media display app, fetching paintings and metadata from an API and displaying. Written with functional/hooks paradigm. Uses an http service that wraps the native fetch api. A rewrite of my first portfolio project https://github.com/ahuounan/jenny-dong-client
 
 ## Stack
